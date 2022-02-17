@@ -1,13 +1,13 @@
-import 'react-mde/lib/styles/css/react-mde-all.css';
+import "react-mde/lib/styles/css/react-mde-all.css";
 
-import React, { useState } from 'react';
-import ReactMde from 'react-mde';
-import { v4 } from 'uuid';
+import React, { useState } from "react";
+import ReactMde from "react-mde";
+import { v4 } from "uuid";
 
-import { Box, Button, Input, Spacer, Textarea } from '@chakra-ui/react';
+import { Box, Button, Input, Spacer, Textarea } from "@chakra-ui/react";
 
-import contentfulMgmtClient from '../clients/contentfulMgmtClient';
-import Preview from './Preview';
+// import contentfulMgmtClient from '../clients/contentfulMgmtClient';
+import Preview from "./Preview";
 
 export default function Editor() {
   const [markdown, setMarkdown] = useState<string>("**Hello world!!!**");
