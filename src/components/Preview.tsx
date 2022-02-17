@@ -1,7 +1,8 @@
-import { Box, Spacer, Text } from "@chakra-ui/react";
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import gfm from "remark-gfm";
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+
+import { Box, Spacer, Text } from '@chakra-ui/react';
 
 const Preview = (props: { markdown: string }) => {
   return (
