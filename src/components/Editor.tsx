@@ -1,18 +1,19 @@
-import "react-mde/lib/styles/css/react-mde-all.css";
+import 'react-mde/lib/styles/css/react-mde-all.css';
 
-import React, { useState } from "react";
-import ReactMde from "react-mde";
-import { v4 } from "uuid";
+import React, { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import ReactMde from 'react-mde';
+import { v4 } from 'uuid';
 
-import { Box, Button, Input, Spacer, Textarea } from "@chakra-ui/react";
+import { Box, Button, Input, Spacer, Textarea } from '@chakra-ui/react';
 
 // import contentfulMgmtClient from '../clients/contentfulMgmtClient';
-import Preview from "./Preview";
+import Preview from './Preview';
 
 export default function Editor() {
   const [markdown, setMarkdown] = useState<string>("**Hello world!!!**");
+  const [selectedTab, setSelectedTab] = useState<"write" | "preview">("write");
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const uuid = v4();
 
   const handleClick = async () => {
     // 投稿処理
@@ -66,7 +67,15 @@ export default function Editor() {
             justifyContent="space-around"
           >
             <Box flex="1">
-              <ReactMde value={markdown} onChange={setMarkdown} />
+              <ReactMde
+                value={markdown}
+                onChange={setMarkdown}
+                selectedTab={selectedTab}
+                onTabChange={setSelectedTab}
+                generateMarkdownPreview={(markdown) =>
+                  Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
+                }
+              />
             </Box>
             <Box flex="1" padding="4">
               <Preview markdown={markdown} />
