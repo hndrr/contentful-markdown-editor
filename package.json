@@ -16,7 +16,7 @@
     "contentful": "9.1.10",
     "contentful-management": "8.1.2",
     "contentful-typescript-codegen": "3.2.3",
-    "framer-motion": "6.2.6",
+    "framer-motion": "^4.1.17",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-markdown": "8.0.0",
