@@ -1,8 +1,6 @@
-import React from 'react';
-import ReactMarkdown from 'react-markdown';
-import gfm from 'remark-gfm';
+import MarkdownView from 'react-showdown';
 
-import { Box, Spacer, Text } from '@chakra-ui/react';
+import { Box, Image, Spacer, Text } from '@chakra-ui/react';
 
 const Preview = (props: { markdown: string }) => {
   return (
@@ -12,9 +10,12 @@ const Preview = (props: { markdown: string }) => {
       </Text>
       <Spacer height={"2"} />
       <Box>
-        <ReactMarkdown remarkPlugins={[gfm]} unwrapDisallowed={false}>
-          {props.markdown}
-        </ReactMarkdown>
+        <MarkdownView
+          markdown={props.markdown}
+          options={{ tables: true, emoji: true }}
+          // これを書くとBox, Image, Spacer, Textが使えるはずだが書くとwhiteoutする
+          // components={{ Box, Image, Spacer, Text }}
+        />
       </Box>
     </Box>
   );
