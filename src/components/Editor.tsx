@@ -1,8 +1,8 @@
 import 'react-mde/lib/styles/css/react-mde-all.css';
 
 import React, { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
 import ReactMde from 'react-mde';
+import MarkdownView from 'react-showdown';
 import { v4 } from 'uuid';
 
 import { Box, Button, Input, Spacer, Textarea } from '@chakra-ui/react';
@@ -73,7 +73,12 @@ export default function Editor() {
                 selectedTab={selectedTab}
                 onTabChange={setSelectedTab}
                 generateMarkdownPreview={(markdown) =>
-                  Promise.resolve(<ReactMarkdown>{markdown}</ReactMarkdown>)
+                  Promise.resolve(
+                    <MarkdownView
+                      markdown={markdown}
+                      options={{ tables: true, emoji: true }}
+                    />
+                  )
                 }
               />
             </Box>
